@@ -2,10 +2,11 @@
 //https://www.mcucity.com/product/2926/hc-sr04-3-3v-5v-ultrasonic-distance-measuring-sensor-module-trig-echo-uarttx-rx-i2csdascl
 
 #include <Arduino.h>
+#include <Adafruit_NeoPixel.h>
 #include "tmDeltaTime.hpp"
 
-#define INI_ATOMS3
-//#define INI_ATOM
+//#define INI_ATOMS3
+#define INI_ATOM
 //#define INI_XIAO_RP2040
 
 #ifdef INI_ATOMS3
@@ -14,26 +15,30 @@
 #define MOTOR_PIN (8)
 #define MOTOR2_PIN (7)
 #define OUT_PIN (2)
+#define NEO_PWR (16)
+#define NEOPIX (35)
 #endif
 #ifdef INI_ATOM
-#define TRIG_PIN (25)
-#define ECHO_PIN (21)
+#define TRIG_PIN (22)
+#define ECHO_PIN (19)
 #define MOTOR_PIN (33)
 #define MOTOR2_PIN (23)
 #define OUT_PIN (26)
+#define NEO_PWR (26)
+#define NEOPIX (27)
 #endif
 #ifdef INI_XIAO_RP2040
-#include <Adafruit_NeoPixel.h>
 #define TRIG_PIN (D1)
 #define ECHO_PIN (D2)
 #define MOTOR_PIN (D10)
 #define MOTOR2_PIN (D9)
 #define OUT_PIN (D3)
-#define NUMPIXELS 1
-#define NEO_PWR 11 //GPIO11
-#define NEOPIX 12 //GPIO12
-Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIX, NEO_GRB + NEO_KHZ800);
+#define NEO_PWR (11)
+#define NEOPIX (12)
 #endif
+
+#define NUMPIXELS 1
+Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIX, NEO_GRB + NEO_KHZ800);
 
 #define TIMEOUT_US (100000)
 #define MAX_DIST_MM (4000)
@@ -57,14 +62,12 @@ void updateMotorPin(bool isOn){
   digitalWrite(MOTOR_PIN,isOn);
   digitalWrite(MOTOR2_PIN,isOn);
   digitalWrite(OUT_PIN,isOn);
-#ifdef INI_XIAO_RP2040
   if(isOn){
-    pixels.setPixelColor(0, pixels.Color(255, 0, 0));
+    pixels.setPixelColor(0, pixels.Color(0, 55, 0));
   }else{
-    pixels.setPixelColor(0, pixels.Color(0, 255, 0));
+    pixels.setPixelColor(0, pixels.Color(0, 0, 0));
   }
   pixels.show();
-#endif
 }
 
 void updateMotor(uint32_t deltaTime){
@@ -94,12 +97,10 @@ void updateMotor(uint32_t deltaTime){
 }
 
 void setup() {
-#ifdef INI_XIAO_RP2040
+  pinMode(NEO_PWR,OUTPUT);  digitalWrite(NEO_PWR, HIGH);
   pixels.begin();
   pixels.setBrightness(20);
-  pinMode(NEO_PWR,OUTPUT);  digitalWrite(NEO_PWR, HIGH);
-  delay(200);
-#endif
+  delay(100);
 
   Serial.begin(115200);
   Serial.println("Start");
