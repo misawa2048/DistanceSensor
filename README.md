@@ -2,7 +2,10 @@
 Distance sensor for the visually impaired  
 https://youtube.com/shorts/7CfSE-uf2CA?si=v9oYDg3hjXETH1KF  
 ## Hardware
+
+pin assign  
  ![pin asign](https://github.com/misawa2048/DistanceSensor/blob/master/img/pin_asign_DistanceSensor.png)  
+prototypes  
 ![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/prototype.png)  
 
 ## Software
