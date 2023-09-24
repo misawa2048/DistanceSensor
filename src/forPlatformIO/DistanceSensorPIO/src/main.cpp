@@ -24,11 +24,11 @@
 #define NEOPIX (27)
 #endif
 #ifdef INI_XIAO_RP2040
-#define TRIG_PIN (D1)
+#define TRIG_PIN (D3)
 #define ECHO_PIN (D2)
-#define MOTOR_PIN (D10)
-#define MOTOR2_PIN (D9)
-#define OUT_PIN (D3)
+#define MOTOR_PIN (D1)
+#define MOTOR2_PIN (D0)
+#define OUT_PIN (D10)
 #define NEO_PWR (11)
 #define NEOPIX (12)
 #endif
