@@ -37,6 +37,7 @@
 #define NEOPIX (12)
 #endif
 
+#define USE_SERIAL false
 #define NUMPIXELS 1
 Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIX, NEO_GRB + NEO_KHZ800);
 
@@ -46,6 +47,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIX, NEO_GRB + NEO_KHZ800);
 int32_t g_dist_mm;
 int32_t g_mtTime;
 bool g_mtIsOn;
+bool g_mtCancelHeartbeat;
 TmDeltaTime* pTdt= new TmDeltaTime();
 
 void updateDist(uint32_t deltaTime){
@@ -55,7 +57,9 @@ void updateDist(uint32_t deltaTime){
 
   unsigned long dist = pulseIn(ECHO_PIN,HIGH,TIMEOUT_US); // Count the received high time
   g_dist_mm = (dist==0) ? MAX_DIST_MM : (int32_t)(dist*340/2/1000); // Calculation distance
+  #if USE_SERIAL
   Serial.println(g_dist_mm); // Serial port output distance signal
+  #endif
 }
 
 void updateMotorPin(bool isOn){
@@ -84,6 +88,7 @@ void updateMotor(uint32_t deltaTime){
       g_mtIsOn=!g_mtIsOn;
       updateMotorPin(g_mtIsOn);
       g_mtTime+= ((g_dist_mm>1500)?150:75);
+      g_mtCancelHeartbeat=true;
     }
   }else{
     g_mtTime -= deltaTime;
@@ -96,14 +101,27 @@ void updateMotor(uint32_t deltaTime){
   }
 }
 
+void updateHeartbeat(uint32_t deltaTime){
+  if(!g_mtCancelHeartbeat){
+    pixels.setPixelColor(0, pixels.Color(55, 0, 0));
+    pixels.show();
+    delay(10);
+    pixels.setPixelColor(0, pixels.Color(0, 0, 0));
+    pixels.show();
+  }
+  g_mtCancelHeartbeat=false;
+}
+
 void setup() {
   pinMode(NEO_PWR,OUTPUT);  digitalWrite(NEO_PWR, HIGH);
   pixels.begin();
   pixels.setBrightness(20);
   delay(100);
 
+#if USE_SERIAL
   Serial.begin(115200);
   Serial.println("Start");
+#endif
   pinMode(ECHO_PIN,INPUT);
   pinMode(TRIG_PIN,OUTPUT);
   pinMode(MOTOR_PIN,OUTPUT);
@@ -113,9 +131,11 @@ void setup() {
   g_dist_mm=0;
   g_mtTime=1000;
   g_mtIsOn=false;
+  g_mtCancelHeartbeat=false;
   pTdt->Setup();
   pTdt->AddTrig(updateDist,100);
   pTdt->AddTrig(updateMotor,25);
+  pTdt->AddTrig(updateHeartbeat,4000);
 }
 
 void loop() {
