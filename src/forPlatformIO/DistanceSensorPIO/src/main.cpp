@@ -116,8 +116,10 @@ void setup() {
 
 #if USE_SERIAL
   Serial.begin(115200);
+  delay(10);
   Serial.println("Start");
 #endif
+
   pinMode(ECHO_PIN,INPUT);
   pinMode(TRIG_PIN,OUTPUT);
   pinMode(MOTOR_PIN,OUTPUT);
