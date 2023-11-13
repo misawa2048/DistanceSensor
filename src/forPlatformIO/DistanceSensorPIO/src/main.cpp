@@ -13,6 +13,7 @@
 #define OUT_PIN (2)
 #define NEO_PWR (16)
 #define NEOPIX (35)
+#define MOTOT_ON_STATE (HIGH)
 #endif
 #ifdef INI_ATOM
 #define TRIG_PIN (22)
@@ -22,6 +23,7 @@
 #define OUT_PIN (26)
 #define NEO_PWR (26)
 #define NEOPIX (27)
+#define MOTOT_ON_STATE (HIGH)
 #endif
 #ifdef INI_XIAO_RP2040
 #define TRIG_PIN (D3)
@@ -31,6 +33,7 @@
 #define OUT_PIN (D10)
 #define NEO_PWR (11)
 #define NEOPIX (12)
+#define MOTOT_ON_STATE (LOW)
 #endif
 
 #define USE_SERIAL false
@@ -39,6 +42,7 @@ Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIX, NEO_GRB + NEO_KHZ800);
 
 #define TIMEOUT_US (100000)
 #define MAX_DIST_MM (4000)
+#define TRIG_MICROSEC (20)
 
 int32_t g_dist_mm;
 int32_t g_mtTime;
@@ -48,7 +52,7 @@ TmDeltaTime* pTdt= new TmDeltaTime();
 
 void updateDist(uint32_t deltaTime){
   digitalWrite(TRIG_PIN,HIGH);
-  delayMicroseconds(100);
+  delayMicroseconds(TRIG_MICROSEC);
   digitalWrite(TRIG_PIN,LOW); // Trig pin outputs 10US high level pulse trigger signal
 
   unsigned long dist = pulseIn(ECHO_PIN,HIGH,TIMEOUT_US); // Count the received high time
@@ -59,9 +63,10 @@ void updateDist(uint32_t deltaTime){
 }
 
 void updateMotorPin(bool isOn){
-  digitalWrite(MOTOR_PIN,isOn);
-  digitalWrite(MOTOR2_PIN,isOn);
-  digitalWrite(OUT_PIN,isOn);
+  bool isOnState = (MOTOT_ON_STATE==HIGH)?isOn:!isOn;
+  digitalWrite(MOTOR_PIN,isOnState);
+  digitalWrite(MOTOR2_PIN,isOnState);
+  digitalWrite(OUT_PIN,isOnState);
   if(isOn){
     pixels.setPixelColor(0, pixels.Color(0, 55, 0));
   }else{
