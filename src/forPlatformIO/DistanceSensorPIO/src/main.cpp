@@ -35,6 +35,16 @@
 #define NEOPIX (12)
 #define MOTOT_ON_STATE (LOW)
 #endif
+#ifdef INI_RP2040_ZERO
+#define TRIG_PIN (3)
+#define ECHO_PIN (2)
+#define MOTOR_PIN (29)
+#define MOTOR2_PIN (28)
+#define OUT_PIN (10)
+#define NEO_PWR (16)
+#define NEOPIX (16)
+#define MOTOT_ON_STATE (LOW)
+#endif
 
 #define USE_SERIAL false
 #define NUMPIXELS 1

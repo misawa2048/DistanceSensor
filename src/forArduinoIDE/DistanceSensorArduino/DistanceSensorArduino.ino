@@ -8,6 +8,7 @@
 //#define INI_ATOMS3
 #define INI_ATOM
 //#define INI_XIAO_RP2040
+//#define INI_RP2040_ZERO
 
 #ifdef INI_ATOMS3
 #define TRIG_PIN (5)
@@ -37,6 +38,16 @@
 #define OUT_PIN (D10)
 #define NEO_PWR (11)
 #define NEOPIX (12)
+#define MOTOT_ON_STATE (LOW)
+#endif
+#ifdef INI_RP2040_ZERO
+#define TRIG_PIN (3)
+#define ECHO_PIN (2)
+#define MOTOR_PIN (29)
+#define MOTOR2_PIN (28)
+#define OUT_PIN (10)
+#define NEO_PWR (16)
+#define NEOPIX (16)
 #define MOTOT_ON_STATE (LOW)
 #endif
 
