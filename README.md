@@ -14,5 +14,10 @@ Arduino IDE
 PlatformIO  
 ![select your device](https://github.com/misawa2048/DistanceSensor/blob/master/img/select_your_device_platformio.png)  
 
+## links  
+[board manager settings](https://2kuru.com/m5stack_atom_matrix_spec/)  
+[About distance sensor](https://www.mcucity.com/product/2926/hc-sr04-3-3v-5v-ultrasonic-distance-measuring-sensor-module-trig-echo-uarttx-rx-i2csdascl)  
+
+
 
 
