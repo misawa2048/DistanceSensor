@@ -13,7 +13,7 @@
 #define OUT_PIN (2)
 #define NEO_PWR (16)
 #define NEOPIX (35)
-#define MOTOT_ON_STATE (HIGH)
+#define MOTOT_ON_STATE (LOW)
 #endif
 #ifdef INI_ATOM
 #define TRIG_PIN (22)
@@ -23,7 +23,7 @@
 #define OUT_PIN (26)
 #define NEO_PWR (26)
 #define NEOPIX (27)
-#define MOTOT_ON_STATE (HIGH)
+#define MOTOT_ON_STATE (LOW)
 #endif
 #ifdef INI_XIAO_RP2040
 #define TRIG_PIN (D3)
