@@ -1,6 +1,3 @@
-//https://2kuru.com/m5stack_atom_matrix_spec/
-//https://www.mcucity.com/product/2926/hc-sr04-3-3v-5v-ultrasonic-distance-measuring-sensor-module-trig-echo-uarttx-rx-i2csdascl
-
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
 #include "tmDeltaTime.hpp"
@@ -50,9 +47,12 @@
 #define NUMPIXELS 1
 Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIX, NEO_GRB + NEO_KHZ800);
 
-#define TIMEOUT_US (100000)
 #define MAX_DIST_MM (4000)
-#define TRIG_MICROSEC (20)
+#define TIMEOUT_USEC (100000)
+#define TRIG_USEC (20)
+#define DIST_INTERVAL_MSEC (150)
+#define MOTOR_INTERVAL_MSEC (30)
+#define HEARTBEAT_INTERVAL_MSEC (4000)
 
 int32_t g_dist_mm;
 int32_t g_mtTime;
@@ -62,10 +62,10 @@ TmDeltaTime* pTdt= new TmDeltaTime();
 
 void updateDist(uint32_t deltaTime){
   digitalWrite(TRIG_PIN,HIGH);
-  delayMicroseconds(TRIG_MICROSEC);
+  delayMicroseconds(TRIG_USEC);
   digitalWrite(TRIG_PIN,LOW); // Trig pin outputs 10US high level pulse trigger signal
 
-  unsigned long dist = pulseIn(ECHO_PIN,HIGH,TIMEOUT_US); // Count the received high time
+  unsigned long dist = pulseIn(ECHO_PIN,HIGH,TIMEOUT_USEC); // Count the received high time
   g_dist_mm = (dist==0) ? MAX_DIST_MM : (int32_t)(dist*340/2/1000); // Calculation distance
   #if USE_SERIAL
   Serial.println(g_dist_mm); // Serial port output distance signal
@@ -146,9 +146,9 @@ void setup() {
   g_mtIsOn=false;
   g_mtCancelHeartbeat=false;
   pTdt->Setup();
-  pTdt->AddTrig(updateDist,100);
-  pTdt->AddTrig(updateMotor,25);
-  pTdt->AddTrig(updateHeartbeat,4000);
+  pTdt->AddTrig(updateDist,DIST_INTERVAL_MSEC);
+  pTdt->AddTrig(updateMotor,MOTOR_INTERVAL_MSEC);
+  pTdt->AddTrig(updateHeartbeat,HEARTBEAT_INTERVAL_MSEC);
 }
 
 void loop() {
