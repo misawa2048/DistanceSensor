@@ -6,7 +6,7 @@ https://youtube.com/shorts/7CfSE-uf2CA?si=v9oYDg3hjXETH1KF
 pin assign  
  ![pin asign](https://github.com/misawa2048/DistanceSensor/blob/master/img/pin_asign_DistanceSensor.png)  
 prototypes  
-![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/prototype.png)  
+![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/prototypes_b.jpg)  
 
 ## Software
 Arduino IDE  
