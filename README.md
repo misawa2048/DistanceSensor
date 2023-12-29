@@ -9,8 +9,9 @@ https://youtube.com/shorts/7CfSE-uf2CA?si=v9oYDg3hjXETH1KF
 ## Hardware
 
 ### pin asign  
-XIAO_RP2040
+XIAO_RP2040  
  ![pin asign](https://github.com/misawa2048/DistanceSensor/blob/master/img/pin_asign_xiao2040.png)  
+ATOM_S3LITE    
  ![pin asign](https://github.com/misawa2048/DistanceSensor/blob/master/img/pin_asign_atoms3.png)  
  
 ### prototypes  
