@@ -32,11 +32,21 @@
 #define NEOPIX (12)
 #define MOTOT_ON_STATE (LOW)
 #endif
+#ifdef INI_XIAO
+#define TRIG_PIN (D3)
+#define ECHO_PIN (D2)
+#define MOTOR_PIN (D1)
+#define MOTOR2_PIN (D0)
+#define OUT_PIN (D10)
+#define NEO_PWR (11)
+#define NEOPIX (12)
+#define MOTOT_ON_STATE (LOW)
+#endif
 #ifdef INI_RP2040_ZERO
 #define TRIG_PIN (3)
 #define ECHO_PIN (2)
-#define MOTOR_PIN (29)
-#define MOTOR2_PIN (28)
+#define MOTOR_PIN (1)
+#define MOTOR2_PIN (0)
 #define OUT_PIN (10)
 #define NEO_PWR (16)
 #define NEOPIX (16)
