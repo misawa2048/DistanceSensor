@@ -16,6 +16,7 @@ ATOM_S3LITE (back)
  
 ### prototypes  
 ![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/prototypes_b.jpg)  
+![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/distance_sensor_ss.jpg)  
 
 ## Software
 Arduino IDE  
