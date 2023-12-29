@@ -11,7 +11,9 @@ https://youtube.com/shorts/7CfSE-uf2CA?si=v9oYDg3hjXETH1KF
 ### pin asign  
 XIAO_RP2040
  ![pin asign](https://github.com/misawa2048/DistanceSensor/blob/master/img/pin_asign_xiao2040.png)  
-prototypes  
+ ![pin asign](https://github.com/misawa2048/DistanceSensor/blob/master/img/pin_asign_atoms3.png)  
+ 
+### prototypes  
 ![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/prototypes_b.jpg)  
 
 ## Software
