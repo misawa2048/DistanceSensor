@@ -1,12 +1,12 @@
-G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,7.0.5*
-G04 #@! TF.CreationDate,2023-12-03T19:54:15+09:00*
-G04 #@! TF.ProjectId,Misawa_DistanceSensor,4d697361-7761-45f4-9469-7374616e6365,v1.0*
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,7.0.5-0*
+G04 #@! TF.CreationDate,2024-01-10T22:08:28+09:00*
+G04 #@! TF.ProjectId,Misawa_DistanceSensor,4d697361-7761-45f4-9469-7374616e6365,v0.3*
 G04 #@! TF.SameCoordinates,Original*
 G04 #@! TF.FileFunction,Soldermask,Top*
 G04 #@! TF.FilePolarity,Negative*
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 7.0.5) date 2023-12-03 19:54:15*
+G04 Created by KiCad (PCBNEW 7.0.5-0) date 2024-01-10 22:08:28*
 %MOMM*%
 %LPD*%
 G01*
