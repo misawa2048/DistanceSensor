@@ -1,4 +1,4 @@
-# DistanceSensor 
+# Open Distance Sensor 
 ![screenshot](https://github.com/misawa2048/DistanceSensor/blob/master/img/distance_sensor_ss.jpg)  
 Open DistanceSensorは、広く一般に流通しているパーツを使用して構成された超音波距離センサーです。 
 最大4メートル前方の障害物を認識し、振動の間隔で距離をユーザーに伝えます。  
