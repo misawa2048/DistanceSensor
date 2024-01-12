@@ -12,7 +12,7 @@ https://youtube.com/shorts/7CfSE-uf2CA?si=v9oYDg3hjXETH1KF
 ![Printed circuit board](https://github.com/misawa2048/DistanceSensor/blob/master/img/board_ss.jpg)  
 
 ### STL
-![3D print model](https://github.com/misawa2048/DistanceSensor/blob/master/img/distance_sensor_ss.jpg)  
+![3D print model](https://github.com/misawa2048/DistanceSensor/blob/master/img/casing_ss.jpg)  
 
 ### pin asign  
 XIAO_RP2040 (front side of mounting)  
