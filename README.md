@@ -2,7 +2,7 @@
 ![screenshot](https://github.com/misawa2048/DistanceSensor/blob/master/img/distance_sensor_ss.jpg)  
 Open DistanceSensorは、広く一般に流通しているパーツを使用して構成された超音波距離センサーです。 
 最大4メートル前方の障害物を認識し、振動の間隔で距離をユーザーに伝えます。  
-オープンソースなので、ここにあるデータを用いてどなたでも作成・ご活用いただけます。  
+オープンソースですので、ここにあるデータを用いてどなたでも作成・ご活用いただけます。  
 
 Open DistanceSensor is an ultrasonic distance sensor composed of widely available parts.  
 It recognizes obstacles up to 4 meters ahead and tells the user the distance in terms of vibration intervals.  
