@@ -36,7 +36,13 @@ PlatformIO
 ![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/prototypes_b.jpg)  
 ![prototype](https://github.com/misawa2048/DistanceSensor/blob/master/img/distance_sensor_ss.jpg)  
 
-## links  
+## Support
+こちらのプロジェクトは  
+令和5年度 競争力強化支援事業（ソフトウェア開発費助成）として  
+品川区より支援を受けております（支援金額:￥273000）。  
+
+
+## Links  
 [board manager settings](https://2kuru.com/m5stack_atom_matrix_spec/)  
 [About distance sensor](https://www.mcucity.com/product/2926/hc-sr04-3-3v-5v-ultrasonic-distance-measuring-sensor-module-trig-echo-uarttx-rx-i2csdascl)  
 
